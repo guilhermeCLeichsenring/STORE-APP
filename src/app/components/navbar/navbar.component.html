@@ -1,0 +1,33 @@
+<nav>
+  <a routerLink="home">
+    <h3>HOME</h3>
+  </a>
+
+  <ul>
+    <li>
+      <button class="icon-button" mat-button [matMenuTriggerFor]="belowMenu">
+        Itens
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="keyboard_arrow_down"
+        ></mat-icon>
+      </button>
+      <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item routerLink="calculator">Calculadora</button>
+        <button mat-menu-item routerLink="animals">Animais</button>
+      </mat-menu>
+    </li>
+    <li><button mat-button routerLink="contact">Contact</button></li>
+    <li>
+      <button mat-button class="icon-button" routerLink="login">
+        Login
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="login"
+        ></mat-icon>
+      </button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,47 @@
+
+<div class="container">
+    <mat-card class="card">
+        <mat-card-content>
+            <h2>Informações usuário</h2>
+
+            <div class="contact-form">
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input required [(ngModel)]="nome" name="nome" matInput>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Sobrenome</mat-label>
+                    <input required [(ngModel)]="sobrenome" name="sobrenome" matInput>
+                  </mat-form-field>
+        
+                  <mat-form-field>
+                    <mat-label>Sexo</mat-label>
+                    <mat-select required [(ngModel)]="sexo">
+                      <mat-option value="male">Masculino</mat-option>
+                      <mat-option value="female">Feminino</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+        
+                  <mat-form-field>
+                    <mat-label>Mensagem</mat-label>
+                    <textarea [(ngModel)]="mensagem" name="mensagem" matInput></textarea>
+                  </mat-form-field>
+
+                  <button (click)="sentForm()" mat-raised-button color="primary">Primary</button>
+
+
+                </div>
+            
+    
+        </mat-card-content>
+        
+    </mat-card>
+    
+</div>
+
+
+
+  
+
+

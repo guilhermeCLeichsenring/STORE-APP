@@ -1,0 +1,48 @@
+.container {
+  margin-inline: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.animal {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.animal:nth-child(1) {
+  background-image: url(/assets/images/passaro.webp);
+  background-position: left;
+}
+
+.animal:nth-child(2) {
+  background-image: url(/assets/images/onca-pintada.webp);
+}
+
+.animal:nth-child(3) {
+  background-image: url(/assets/images/peixe.jpg);
+}
+
+.animal:nth-child(4) {
+  background-image: url(/assets/images/tartaruga-cagado-e-jabuti-og.webp);
+  background-position: right;
+}
+
+@media (max-width: 450px) {
+  .animal {
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
+
+  .animal:nth-child(1) {
+    background-image: url(/assets/images/passaro.webp);
+    background-position: center;
+  }
+
+  .animal:nth-child(4) {
+    background-image: url(/assets/images/tartaruga-cagado-e-jabuti-og.webp);
+    background-position: center;
+  }
+}

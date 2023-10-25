@@ -1,0 +1,119 @@
+<mat-drawer-container class="example-container" autosize>
+  <app-navbar id="navbar"></app-navbar>
+
+  <mat-drawer class="drawer" #drawer class="example-sidenav" mode="side">
+    <div class="top-content">
+      <div (click)="showMenuButton = !showMenuButton" class="close-button">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="close"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        ></mat-icon>
+      </div>
+
+      <mat-list role="list">
+        <mat-list-item
+          routerLink="home"
+          role="listitem"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="home"
+          ></mat-icon>
+          Home
+        </mat-list-item>
+
+        <mat-list-item role="listitem" [matMenuTriggerFor]="afterMenu">
+          <button mat-button [matMenuTriggerFor]="afterMenu">
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="arrow_forward_ios"
+            ></mat-icon>
+            Itens
+          </button>
+          <mat-menu #afterMenu="matMenu" xPosition="after">
+            <button
+              routerLink="calculator"
+              (click)="drawer.toggle()"
+              (click)="showMenuButton = !showMenuButton"
+              mat-menu-item
+            >
+              Calculadora
+            </button>
+            <button
+              routerLink="animals"
+              (click)="drawer.toggle()"
+              (click)="showMenuButton = !showMenuButton"
+              mat-menu-item
+            >
+              Animais
+            </button>
+          </mat-menu>
+        </mat-list-item>
+
+        <mat-list-item
+          routerLink="contact"
+          role="listitem"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="contact_page"
+          ></mat-icon>
+          Contact
+        </mat-list-item>
+
+        <mat-list-item
+          routerLink="login"
+          role="listitem"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="login"
+          ></mat-icon>
+          Login
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div class="bottom-content">
+      <p>Auto-resizing sidenav</p>
+
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <br />
+    <button
+      class="menu-button"
+      type="button"
+      *ngIf="showMenuButton"
+      (click)="showMenuButton = !showMenuButton"
+      (click)="drawer.toggle()"
+      mat-button
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="menu"
+      ></mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</mat-drawer-container>
