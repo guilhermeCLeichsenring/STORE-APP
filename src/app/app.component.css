@@ -21,15 +21,13 @@
   position: fixed;
   display: flex;
   height: 30px;
-  /* align-items: center;
-    justify-content: center; */
 }
 
 .example-sidenav {
   padding: 20px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .menu-button {
     visibility: visible;
   }

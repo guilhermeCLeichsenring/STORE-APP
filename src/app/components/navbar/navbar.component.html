@@ -5,7 +5,12 @@
 
   <ul>
     <li>
-      <button class="icon-button" mat-button [matMenuTriggerFor]="belowMenu">
+      <button
+        *ngIf="isAuth"
+        class="icon-button"
+        mat-button
+        [matMenuTriggerFor]="belowMenu"
+      >
         Itens
         <mat-icon
           aria-hidden="false"
@@ -18,7 +23,12 @@
         <button mat-menu-item routerLink="animals">Animais</button>
       </mat-menu>
     </li>
-    <li><button mat-button routerLink="contact">Contact</button></li>
+    <li>
+      <button *ngIf="isAuth" mat-button routerLink="contact">Contact</button>
+    </li>
+    <li>
+      <button *ngIf="isAuth" mat-button routerLink="user">Users</button>
+    </li>
     <li>
       <button mat-button class="icon-button" routerLink="login">
         Login
@@ -29,5 +39,6 @@
         ></mat-icon>
       </button>
     </li>
+    <label class="user-name">{{ userName }}</label>
   </ul>
 </nav>

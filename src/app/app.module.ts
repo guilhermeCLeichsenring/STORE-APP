@@ -22,6 +22,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CalculatorComponent } from './pages/calculator/calculator.component';
 import { AnimalsComponent } from './pages/animals/animals.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AuthGuardService } from './shared/auth-guard.service';
+import { UserComponent } from './pages/user/user.component';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     CalculatorComponent,
     AnimalsComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +54,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FormsModule,
     MatMenuModule,
     MatGridListModule,
+    MatTableModule,
+    HttpClientModule, //Módulo para utilizar o Http do Angular
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

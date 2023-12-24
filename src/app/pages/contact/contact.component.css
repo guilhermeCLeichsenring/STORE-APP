@@ -1,21 +1,22 @@
-.container{
-   display: flex;
-   justify-content: center;
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.container .card{
+.container .card {
+  margin-top: 100px;
+  width: 50%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .container .card {
     margin-top: 100px;
-    width: 35%;
+    width: 80%;
+  }
 }
-
-.contact-form{
-    display: flex;
-    flex-direction: column;  
-}
-
-@media (max-width: 425px){
-    .container .card{
-        margin-top: 100px;
-        width: 80%;
-    }
- }

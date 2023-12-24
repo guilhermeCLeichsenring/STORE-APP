@@ -9,12 +9,12 @@
           aria-label="Example home icon"
           fontIcon="close"
           (click)="drawer.toggle()"
-          (click)="showMenuButton = !showMenuButton"
         ></mat-icon>
       </div>
 
       <mat-list role="list">
         <mat-list-item
+          *ngIf="isAuth"
           routerLink="home"
           role="listitem"
           (click)="drawer.toggle()"
@@ -28,7 +28,11 @@
           Home
         </mat-list-item>
 
-        <mat-list-item role="listitem" [matMenuTriggerFor]="afterMenu">
+        <mat-list-item
+          *ngIf="isAuth"
+          role="listitem"
+          [matMenuTriggerFor]="afterMenu"
+        >
           <button mat-button [matMenuTriggerFor]="afterMenu">
             <mat-icon
               aria-hidden="false"
@@ -58,6 +62,7 @@
         </mat-list-item>
 
         <mat-list-item
+          *ngIf="isAuth"
           routerLink="contact"
           role="listitem"
           (click)="drawer.toggle()"
@@ -69,6 +74,21 @@
             fontIcon="contact_page"
           ></mat-icon>
           Contact
+        </mat-list-item>
+
+        <mat-list-item
+          *ngIf="isAuth"
+          routerLink="user"
+          role="listitem"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="contact_page"
+          ></mat-icon>
+          Users
         </mat-list-item>
 
         <mat-list-item

@@ -37,7 +37,13 @@ ul {
   justify-content: center;
 }
 
-@media (max-width: 425px) {
+.user-name {
+  margin-inline: 1rem;
+  justify-self: center;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
   nav {
     visibility: hidden;
     height: 0;
