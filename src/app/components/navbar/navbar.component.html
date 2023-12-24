@@ -1,33 +1,86 @@
-<nav>
-  <a routerLink="home">
-    <h3>HOME</h3>
-  </a>
+<p>
+  <mat-toolbar class="nav" color="primary">
+    <mat-toolbar-row class="first-line">
+      <button mat-button routerLink="home">
+        <h1>Generic Store</h1>
+      </button>
 
-  <ul>
-    <li>
-      <button class="icon-button" mat-button [matMenuTriggerFor]="belowMenu">
-        Itens
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="keyboard_arrow_down"
-        ></mat-icon>
+      <ul>
+        <li>
+          <button
+            *ngIf="isAuth"
+            class="icon-button"
+            mat-button
+            [matMenuTriggerFor]="belowMenu"
+          >
+            Categories
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="keyboard_arrow_down"
+            ></mat-icon>
+          </button>
+          <mat-menu #belowMenu="matMenu" yPosition="below">
+            <div class="container-categories">
+              <button
+                *ngFor="let category of categories"
+                (click)="categoryFunction(category)"
+                mat-menu-item
+              >
+                {{ category }}
+              </button>
+            </div>
+          </mat-menu>
+        </li>
+        <li>
+          <button *ngIf="isAuth" mat-button routerLink="products">
+            Products
+          </button>
+        </li>
+
+        <li>
+          <button mat-button class="icon-button" routerLink="login">
+            Login
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="login"
+            ></mat-icon>
+          </button>
+        </li>
+        <li>
+          <h1>
+            <label class="user-name">{{ userName }}</label>
+          </h1>
+        </li>
+      </ul>
+    </mat-toolbar-row>
+
+    <!-- Search -->
+    <mat-toolbar-row class="second-line">
+      <p>
+        <mat-form-field *ngIf="isAuth" class="search" appearance="fill">
+          <mat-label>Find your product</mat-label>
+          <input
+            (keyup.enter)="searchFunction()"
+            [(ngModel)]="search"
+            matInput
+            placeholder="Write any product name"
+          />
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <span class="example-spacer"></span>
+      <button
+        *ngIf="isAuth"
+        routerLink="cart"
+        mat-icon-button
+        class="example-icon shoppingcart-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>shopping_cart</mat-icon>
       </button>
-      <mat-menu #belowMenu="matMenu" yPosition="below">
-        <button mat-menu-item routerLink="calculator">Calculadora</button>
-        <button mat-menu-item routerLink="animals">Animais</button>
-      </mat-menu>
-    </li>
-    <li><button mat-button routerLink="contact">Contact</button></li>
-    <li>
-      <button mat-button class="icon-button" routerLink="login">
-        Login
-        <mat-icon
-          aria-hidden="false"
-          aria-label="Example home icon"
-          fontIcon="login"
-        ></mat-icon>
-      </button>
-    </li>
-  </ul>
-</nav>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>

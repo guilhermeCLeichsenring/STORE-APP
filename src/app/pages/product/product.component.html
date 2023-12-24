@@ -1,0 +1,29 @@
+<header>
+  <h1>{{ product.title }}</h1>
+</header>
+
+<main>
+  <div class="produto-container">
+    <div class="imagem-produto">
+      <img src="{{ product.thumbnail }}" alt="Nome do Produto" />
+    </div>
+    <div class="detalhes-produto">
+      <h2>{{ product.title }}</h2>
+      <h3>{{product.brand}}</h3>
+      <p><del>U${{product.price}}</del></p>
+      <p class="preco">U$ {{transform(doDiscount(), 2)}}</p>            
+      <h2>⭐{{product.rating}}/5.0</h2>
+      <p class="descricao">
+        {{ product.description }}   
+      </p>
+      <h3>Availible in stock: {{product.stock}} </h3>
+      <button (click)="buttonAddShopping()" class="botao-comprar">Add to shopping cart</button>
+      
+      
+    </div> 
+  </div>
+
+
+
+
+</main>

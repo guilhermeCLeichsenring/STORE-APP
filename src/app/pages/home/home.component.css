@@ -1,6 +1,41 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+header {
+  margin-bottom: 0;
+}
+
+header h1 {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px #a9f5f8;
+  font-size: 3rem;
+  margin: auto;
+  margin-top: 0;
+  width: 50%;
+}
+.banner {
+  width: 100%;
+}
+
+hr {
+  width: 90%;
+}
+
+h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }

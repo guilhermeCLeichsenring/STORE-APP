@@ -1,4 +1,19 @@
-# AngularApp
+# Generic Store
+
+This is a Angular web project for student purposes, where the use of the Angular HTTP Client and its other principles is practiced to create a generic ecommerce website. An API available online was used for the Get function of the products.
+
+## Availible features
+
+- Search products by the search input;
+- Search by category;
+- Search all.
+
+## The features currently in development:
+
+- Shopping Cart;
+- fixing responsible bugs.
+
+## AngularCli
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 

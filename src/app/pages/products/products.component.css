@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+hr {
+  width: 90%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.search-input {
+  width: 30rem;
+}
+
+.search-input {
+  display: flex;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.error-message {
+  margin-top: 10rem;
+  font-size: 5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+
+    flex-direction: column;
+  }
+}

@@ -1,26 +1,39 @@
-/* Estilize a navbar */
-nav {
-  background-color: #333;
+/* Estilize a .navbar */
+.nav {
+  background-color: #33207d;
   color: #fff;
   padding: 10px 5px;
   padding-left: 10px;
+}
 
+.nav .first-line {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav ul {
+.nav .second-line {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav .second-line .search {
+  width: 40rem;
+}
+
+.nav ul {
   list-style: none;
   padding: 0;
 }
 
-nav li {
+.nav li {
   display: inline;
   margin: 0 20px;
 }
 
-nav a {
+.nav a {
   color: #fff;
   text-decoration: none;
 }
@@ -37,8 +50,18 @@ ul {
   justify-content: center;
 }
 
-@media (max-width: 425px) {
-  nav {
+.user-name {
+  margin-inline: 1rem;
+  justify-self: center;
+  font-size: 2rem;
+}
+
+.container-categories {
+  max-height: 20rem;
+}
+
+@media (max-width: 768px) {
+  .nav {
     visibility: hidden;
     height: 0;
   }

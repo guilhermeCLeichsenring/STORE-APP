@@ -1,6 +1,49 @@
 <div class="container">
-    <h1>Bem Vindo!</h1>
+  <header>
+    <h1>
+      WELCOME TO<br />
+      <br />
+      THE GENERIC STORE
+    </h1>
+    <br /><br />
+    <img
+      class="banner"
+      src="/assets/images/Amazing Discounts.png"
+      alt="black friday banner"
+    />
+  </header>
+
+  <br /><br /><br />
+  <section class="promotion">
+    <h1>10% off</h1>
+    <hr />
+    <br />
+    <div class="products-container">
+      <div *ngFor="let product of promotionProducts">
+        <app-product-card [Product]="product"></app-product-card>
+      </div>
+    </div>
+  </section>
+  <br /><br /><br />
+  <section class="male">
+    <h1>PRODUCTS FOR MEN</h1>
+    <hr />
+    <br />
+    <div class="products-container">
+      <div *ngFor="let product of maleProducts">
+        <app-product-card [Product]="product"></app-product-card>
+      </div>
+    </div>
+  </section>
+  <br /><br /><br />
+  <section class="famela">
+    <h1>PRODUCTS FOR WOMEN</h1>
+    <hr />
+    <br />
+    <div class="products-container">
+      <div *ngFor="let product of femaleProducts">
+        <app-product-card [Product]="product"></app-product-card>
+      </div>
+    </div>
+  </section>
 </div>
-
-
-

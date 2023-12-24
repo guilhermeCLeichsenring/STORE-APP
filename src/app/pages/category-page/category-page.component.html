@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Find your Product</h1>
+
+  <h3 class="total-funded">Total itens funded: {{ totalFunded }}</h3>
+  <hr />
+
+  <!-- Products List -->
+
+  <div class="products-container">
+    <div *ngFor="let product of products">
+      <app-product-card [Product]="product"></app-product-card>
+    </div>
+  </div>
+</div>

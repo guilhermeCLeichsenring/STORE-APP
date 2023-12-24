@@ -9,12 +9,12 @@
           aria-label="Example home icon"
           fontIcon="close"
           (click)="drawer.toggle()"
-          (click)="showMenuButton = !showMenuButton"
         ></mat-icon>
       </div>
 
       <mat-list role="list">
         <mat-list-item
+          *ngIf="isAuth"
           routerLink="home"
           role="listitem"
           (click)="drawer.toggle()"
@@ -28,14 +28,18 @@
           Home
         </mat-list-item>
 
-        <mat-list-item role="listitem" [matMenuTriggerFor]="afterMenu">
+        <!-- <mat-list-item
+          *ngIf="isAuth"
+          role="listitem"
+          [matMenuTriggerFor]="afterMenu"
+        >
           <button mat-button [matMenuTriggerFor]="afterMenu">
             <mat-icon
               aria-hidden="false"
               aria-label="Example home icon"
               fontIcon="arrow_forward_ios"
             ></mat-icon>
-            Itens
+            Category
           </button>
           <mat-menu #afterMenu="matMenu" xPosition="after">
             <button
@@ -55,10 +59,11 @@
               Animais
             </button>
           </mat-menu>
-        </mat-list-item>
+        </mat-list-item> -->
 
         <mat-list-item
-          routerLink="contact"
+          *ngIf="isAuth"
+          routerLink="products"
           role="listitem"
           (click)="drawer.toggle()"
           (click)="showMenuButton = !showMenuButton"
@@ -66,9 +71,9 @@
           <mat-icon
             aria-hidden="false"
             aria-label="Example home icon"
-            fontIcon="contact_page"
+            fontIcon="inventory_2"
           ></mat-icon>
-          Contact
+          Products
         </mat-list-item>
 
         <mat-list-item
@@ -85,15 +90,6 @@
           Login
         </mat-list-item>
       </mat-list>
-    </div>
-
-    <div class="bottom-content">
-      <p>Auto-resizing sidenav</p>
-
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
     </div>
   </mat-drawer>
 

@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Find your Product</h1>
+  <hr />
+  <header>
+    <!-- Search -->
+    <div class="search">
+      <p>
+        <mat-form-field class="search-input" appearance="outline">
+          <mat-label>Find your product</mat-label>
+          <input
+            (keyup.enter)="loadAllProductsBySearch(search)"
+            [(ngModel)]="search"
+            matInput
+            placeholder="Write any product name"
+          />
+          <mat-icon (click)="loadAllProductsBySearch(search)" matSuffix
+            >search</mat-icon
+          >
+          <mat-hint>Write any product name</mat-hint>
+        </mat-form-field>
+      </p>
+    </div>
+
+    <!-- Categories -->
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select>
+        <mat-option (click)="loadAllProducts()" value="option">All</mat-option>
+        <mat-option
+          *ngFor="let category of categories"
+          (click)="loadAllProductsByCategory(category)"
+          value="option"
+          >{{ category }}</mat-option
+        >
+      </mat-select>
+      <mat-hint align="end">Chose category</mat-hint>
+    </mat-form-field>
+  </header>
+  <hr />
+
+  <!-- Products List -->
+
+  <div class="products-container">
+    <div *ngFor="let product of products">
+      <app-product-card [Product]="product"></app-product-card>
+    </div>
+  </div>
+</div>
+<div class="error-message">{{ errorMessage }}</div>
