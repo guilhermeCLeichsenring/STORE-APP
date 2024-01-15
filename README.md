@@ -2,16 +2,25 @@
 
 This is a Angular web project for student purposes, where the use of the Angular HTTP Client and its other principles is practiced to create a generic ecommerce website. An API available online was used for the Get function of the products.
 
+## Access
+
+<table>
+<tr>
+<th>User</th>
+<th>Password</th>
+</tr>
+<tr>
+<td>admin</td>
+<td>admin</td>
+</tr>
+</table>
+
 ## Availible features
 
 - Search products by the search input;
 - Search by category;
 - Search all.
-
-## The features currently in development:
-
-- Shopping Cart;
-- fixing responsible bugs.
+- Delete and add to shopping cart.
 
 ## AngularCli
 

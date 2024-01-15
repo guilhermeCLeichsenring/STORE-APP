@@ -27,11 +27,15 @@ export class ProductComponent {
     });
   }
 
+  // Get Product
+
   getProductById(id: number) {
     this.service.getById(id).subscribe((response: ProductModel) => {
       this.product = response;
     });
   }
+
+  // Do discount
 
   doDiscount(): number {
     let decimalDiscount: number = this.product.discountPercentage;
@@ -57,7 +61,7 @@ export class ProductComponent {
   }
 
   buttonAddShopping() {
-    //this.shared.setProductToCart(this.productId);
+    this.shared.addProduct(this.product);
 
     alert('Iten Added to your shopping cart!');
   }

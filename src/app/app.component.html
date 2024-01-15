@@ -1,6 +1,5 @@
 <mat-drawer-container class="example-container" autosize>
   <app-navbar id="navbar"></app-navbar>
-
   <mat-drawer class="drawer" #drawer class="example-sidenav" mode="side">
     <div class="top-content">
       <div (click)="showMenuButton = !showMenuButton" class="close-button">
@@ -28,39 +27,6 @@
           Home
         </mat-list-item>
 
-        <!-- <mat-list-item
-          *ngIf="isAuth"
-          role="listitem"
-          [matMenuTriggerFor]="afterMenu"
-        >
-          <button mat-button [matMenuTriggerFor]="afterMenu">
-            <mat-icon
-              aria-hidden="false"
-              aria-label="Example home icon"
-              fontIcon="arrow_forward_ios"
-            ></mat-icon>
-            Category
-          </button>
-          <mat-menu #afterMenu="matMenu" xPosition="after">
-            <button
-              routerLink="calculator"
-              (click)="drawer.toggle()"
-              (click)="showMenuButton = !showMenuButton"
-              mat-menu-item
-            >
-              Calculadora
-            </button>
-            <button
-              routerLink="animals"
-              (click)="drawer.toggle()"
-              (click)="showMenuButton = !showMenuButton"
-              mat-menu-item
-            >
-              Animais
-            </button>
-          </mat-menu>
-        </mat-list-item> -->
-
         <mat-list-item
           *ngIf="isAuth"
           routerLink="products"
@@ -69,6 +35,8 @@
           (click)="showMenuButton = !showMenuButton"
         >
           <mat-icon
+            matBadge="{{ productsTotal }}"
+            matBadgeColor="warn"
             aria-hidden="false"
             aria-label="Example home icon"
             fontIcon="inventory_2"
@@ -88,6 +56,23 @@
             fontIcon="login"
           ></mat-icon>
           Login
+        </mat-list-item>
+
+        <mat-list-item
+          *ngIf="isAuth"
+          routerLink="cart"
+          role="listitem"
+          (click)="drawer.toggle()"
+          (click)="showMenuButton = !showMenuButton"
+        >
+          <mat-icon
+            matBadge="{{ productsTotal }}"
+            matBadgeColor="warn"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="shopping_cart"
+          ></mat-icon>
+          Cart
         </mat-list-item>
       </mat-list>
     </div>
@@ -109,7 +94,12 @@
         fontIcon="menu"
       ></mat-icon>
     </button>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="footer">
+      <app-footer></app-footer>
+    </div>
   </div>
 </mat-drawer-container>

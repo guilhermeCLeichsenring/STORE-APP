@@ -10,9 +10,8 @@ export class SharedService {
 
   private _productId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  private _productIdToCart: BehaviorSubject<number[]> = new BehaviorSubject<
-    number[]
-  >([0]);
+  private _productIdToCart: BehaviorSubject<ProductModel[]> =
+    new BehaviorSubject<ProductModel[]>([]);
 
   private _navSearch: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
@@ -52,14 +51,22 @@ export class SharedService {
 
   //Product Id To Cart
 
-  public setProductToCart(productId: number) {
-    this.getProductToCart().subscribe((oldArray: number[]) => {
-      let newArray: number[] = [...oldArray];
+  public updateCart(newProduct: ProductModel[]) {
+    this._productIdToCart.next(newProduct);
+  }
 
-      newArray.push(productId);
+  public addProduct(product: ProductModel) {
+    const currentProducts = this._productIdToCart.value;
+    const newList = [...currentProducts, product];
 
-      this._productIdToCart.next(newArray);
-    });
+    this.updateCart(newList);
+  }
+
+  public removeProduct(product: ProductModel) {
+    const currentProducts = this._productIdToCart.value;
+    const newList = currentProducts.filter((i) => i !== product);
+
+    this.updateCart(newList);
   }
 
   public getProductToCart() {

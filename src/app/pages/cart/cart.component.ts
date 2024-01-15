@@ -10,32 +10,60 @@ import { SharedService } from 'src/app/shared/shared.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  // Página em manutenção, ainda não consegue montar um array de id
-  //para chamalos no componente shoppping card, de maneira que funcione corretamente
-
-  listId: number[] = [];
   productsInCart: any[] = [];
-  emptyCart: string = '';
-  productModel: any;
 
-  constructor(
-    private productService: ProductService,
-    private shared: SharedService
-  ) {}
+  totalPrice: number = 0;
+  totalPriceDiscounted: string = '';
+
+  constructor(private shared: SharedService) {}
 
   ngOnInit(): void {
-    this.shared.getProductToCart().subscribe((result: number[]) => {
-      console.log(result);
+    // geyt the observable list of products Id
+    this.shared.getProductToCart().subscribe((result: ProductModel[]) => {
+      this.productsInCart = result;
     });
-    //console.log(this.listId);
+
     this.productsInCart = Array.from(this.productsInCart);
+    this.sumTotalPrice();
   }
 
-  getProductById(id: number) {
-    this.productService.getById(id).subscribe((response: ProductModel) => {
-      this.productModel = response;
-    });
+  // sum total price
+
+  sumTotalPrice() {
+    let totalDiscounted = 0;
+    for (let prod of this.productsInCart) {
+      this.totalPrice += prod.price;
+
+      totalDiscounted += this.doDiscount(prod.price, prod.discountPercentage);
+    }
+
+    this.totalPriceDiscounted = this.transform(totalDiscounted, 2);
   }
+
+  // Do discount
+
+  doDiscount(price: number, decimalDiscount: number): any {
+    decimalDiscount = decimalDiscount * 0.01;
+
+    let discount: number = price * decimalDiscount;
+
+    let productDisconted: number = price - discount;
+
+    return parseFloat(this.transform(productDisconted, 2));
+  }
+
+  transform(value: number, digits: number): string {
+    if (isNaN(value) || isNaN(digits) || digits <= 0) {
+      return value.toString();
+    }
+
+    const factor = Math.pow(10, digits);
+    const roundedValue = Math.round(value * factor) / factor;
+
+    return roundedValue.toFixed(digits);
+  }
+
+  //delete
 
   btnDelete(product: ProductModel): void {
     let index = this.productsInCart.findIndex((item) => {
@@ -43,6 +71,19 @@ export class CartComponent implements OnInit {
     });
 
     this.productsInCart.splice(index, 1);
+    this.shared.removeProduct(product);
+
+    this.totalPrice -= product.price;
+
+    let totalDiscounted = 0;
+    totalDiscounted = parseFloat(this.totalPriceDiscounted);
+
+    totalDiscounted -= this.doDiscount(
+      product.price,
+      product.discountPercentage
+    );
+
+    this.totalPriceDiscounted = this.transform(totalDiscounted, 2);
 
     this.productsInCart = Array.from(this.productsInCart);
   }
@@ -51,5 +92,15 @@ export class CartComponent implements OnInit {
     this.productsInCart.push(product);
 
     this.productsInCart = Array.from(this.productsInCart);
+  }
+
+  //btn buy
+
+  btnBuy() {
+    if (this.totalPrice > 0) {
+      alert('Purchase completed!');
+    } else {
+      alert('Add some product to the shopping cart first!');
+    }
   }
 }

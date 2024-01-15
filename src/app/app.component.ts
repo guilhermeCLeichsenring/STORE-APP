@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared/shared.service';
+import { ProductModel } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit {
   showFiller = false;
   showMenuButton = true;
   search: string = '';
+  productsTotal: string = '';
 
   isAuth: boolean = false;
 
@@ -20,6 +22,18 @@ export class AppComponent implements OnInit {
     this.shared.getUsername().subscribe((retorno) => {
       if (retorno) {
         this.isAuth = true;
+      }
+    });
+  }
+
+  // Cart
+
+  getTotalProductsInCart() {
+    this.shared.getProductToCart().subscribe((result: ProductModel[]) => {
+      var lenght = result.length;
+
+      if (lenght != 0) {
+        this.productsTotal = lenght.toString();
       }
     });
   }

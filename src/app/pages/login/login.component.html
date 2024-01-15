@@ -5,8 +5,9 @@
 
       <form class="login-form" action="">
         <mat-form-field>
-          <mat-label>Usuário</mat-label>
+          <mat-label>User</mat-label>
           <input
+            (keyup.enter)="btnLogin()"
             required
             type="email"
             name="email"
@@ -16,8 +17,9 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Senha</mat-label>
+          <mat-label>Password</mat-label>
           <input
+            (keyup.enter)="btnLogin()"
             name="senha"
             [(ngModel)]="senha"
             matInput

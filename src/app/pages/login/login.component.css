@@ -4,8 +4,9 @@
 }
 
 .container .card {
-  margin-top: 100px;
   width: 35%;
+  margin-top: 100px;
+  justify-self: center;
 }
 
 .login-form {

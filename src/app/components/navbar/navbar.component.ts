@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductModel } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service.service';
 import { SharedService } from 'src/app/shared/shared.service';
 
@@ -14,6 +15,8 @@ export class NavbarComponent implements OnInit {
   userName: string = '';
   search: string = '';
   categories: string[] = [];
+
+  productsTotal: string = '';
 
   isAuth: boolean = false;
 
@@ -35,6 +38,7 @@ export class NavbarComponent implements OnInit {
         this.isAuth = true;
       }
     });
+    this.getTotalProductsInCart();
   }
 
   //Search Function
@@ -58,5 +62,17 @@ export class NavbarComponent implements OnInit {
     });
 
     this.categories = Array.from(this.categories);
+  }
+
+  // Cart
+
+  getTotalProductsInCart() {
+    this.shared.getProductToCart().subscribe((result: ProductModel[]) => {
+      var lenght = result.length;
+
+      if (lenght != 0) {
+        this.productsTotal = lenght.toString();
+      }
+    });
   }
 }

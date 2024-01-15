@@ -71,6 +71,8 @@
         </mat-form-field>
       </p>
 
+      <!-- Cart -->
+
       <span class="example-spacer"></span>
       <button
         *ngIf="isAuth"
@@ -79,7 +81,9 @@
         class="example-icon shoppingcart-icon"
         aria-label="Example icon-button with heart icon"
       >
-        <mat-icon>shopping_cart</mat-icon>
+        <mat-icon matBadge="{{ productsTotal }}" matBadgeColor="warn"
+          >shopping_cart</mat-icon
+        >
       </button>
     </mat-toolbar-row>
   </mat-toolbar>

@@ -29,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CartComponent } from './pages/cart/cart.component';
     CartComponent,
   ],
   imports: [
+    MatBadgeModule,
     BrowserModule,
     MatToolbarModule,
     AppRoutingModule,
