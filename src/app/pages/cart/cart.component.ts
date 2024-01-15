@@ -1,6 +1,5 @@
 import { ContentObserver } from '@angular/cdk/observers';
 import { Component, OnInit } from '@angular/core';
-import { ProductDTO } from 'src/app/models/product-dto.model';
 import { ProductModel } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service.service';
 import { SharedService } from 'src/app/shared/shared.service';
@@ -15,7 +14,7 @@ export class CartComponent implements OnInit {
   //para chamalos no componente shoppping card, de maneira que funcione corretamente
 
   listId: number[] = [];
-  productsInCart: ProductDTO[] = [];
+  productsInCart: any[] = [];
   emptyCart: string = '';
   productModel: any;
 

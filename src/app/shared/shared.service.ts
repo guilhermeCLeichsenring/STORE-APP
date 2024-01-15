@@ -6,15 +6,15 @@ import { ProductModel } from '../models/product.model';
   providedIn: 'root',
 })
 export class SharedService {
-  _username: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private _username: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  _productId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private _productId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  _productIdToCart: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([
-    0,
-  ]);
+  private _productIdToCart: BehaviorSubject<number[]> = new BehaviorSubject<
+    number[]
+  >([0]);
 
-  _navSearch: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private _navSearch: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   _navCategory: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
@@ -79,10 +79,10 @@ export class SharedService {
   // Nav Category
 
   public setNavCategory(search: string) {
-    this._navSearch.next(search);
+    this._navCategory.next(search);
   }
 
   public getNavCategory() {
-    return this._navSearch.asObservable();
+    return this._navCategory.asObservable();
   }
 }
